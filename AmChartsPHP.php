@@ -26,10 +26,10 @@ class AmChartPHP
     protected $title = 'New Chart';
     protected $type = 'serial';
     protected $startDuration = 2;
-	protected $autoMarginOffset = 20;
-    protected $marginRight = 10;
+	protected $autoMarginOffset = 40;
+    protected $marginRight = 50;
     protected $marginLeft = 10;
-    protected $marginTop = 10;
+    protected $marginTop = 50;
     protected $marginBottom = 10;
     protected $fontSize = 11;
     protected $chartCursor = true;
@@ -42,6 +42,7 @@ class AmChartPHP
 	protected $categoryAxisGridPosition = "start";
 	protected $categoryAxisTitleRotation = 55;
 	protected $categoryValues = array();
+	protected $axisTitle = 'Values';
 	
     public $graphs;
     function __construct()
@@ -162,6 +163,11 @@ class AmChartPHP
 		$valid = array('none', 'light', 'dark', 'black', 'patterns', 'chalk');
         if(in_array($theme, $valid))
             $this->theme = $theme;
+	}
+	//Change title of axis
+	function axisTitle($name)
+	{
+		$this->axisTitle = $this->axisTitle;
 	}
     //Creates a graph - STRING - STRING - ARRAY
     function createGraph($name, $type, array $values)
@@ -337,7 +343,7 @@ class AmChartPHP
 				echo '"valueAxes": [
 						{
 							"id": "ValueAxis-1",
-							"title": "Axis title"
+							"title": "' . $this->axisTitle . '"
 						}
 					],';
 				echo '"dataProvider": [';
