@@ -6,7 +6,9 @@ It's working just with basic functions right now.
 
 Ensure that all AmCharts requirements for the specific functions are met.
 
+
 Quick and easy Example:
+
 $chart = new AmChartPHP();
 
 $chart->categoryValues(array(1,2,3,4,5,6,7,8,9));
